@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://diclwwhrg5yqc"]
+
+[ext_resource type="Script" path="res://Sprites/player.gd" id="1_oai6h"]
+[ext_resource type="Script" path="res://Sprites/camera_zooming.gd" id="2_nhqnd"]
+[ext_resource type="Texture2D" uid="uid://dpmbx2iufadij" path="res://Sprites/stamina_bar.png" id="3_xh3w2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ig8ik"]
+
+[sub_resource type="Gradient" id="Gradient_07boe"]
+offsets = PackedFloat32Array(0.00221239, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lfuag"]
+gradient = SubResource("Gradient_07boe")
+
+[node name="Player" type="CharacterBody2D"]
+texture_filter = 1
+script = ExtResource("1_oai6h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ig8ik")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(9.53674e-07, 9.53674e-07)
+scale = Vector2(0.3125, 0.3125)
+texture = SubResource("GradientTexture2D_lfuag")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+position_smoothing_speed = 20.0
+script = ExtResource("2_nhqnd")
+
+[node name="GlideBar" type="TextureProgressBar" parent="."]
+anchors_preset = -1
+offset_left = -47.0
+offset_top = -44.0
+offset_right = 17.0
+offset_bottom = 20.0
+value = 75.0
+fill_mode = 5
+texture_progress = ExtResource("3_xh3w2")

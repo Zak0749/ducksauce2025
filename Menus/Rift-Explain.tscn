@@ -1,0 +1,97 @@
+[gd_scene load_steps=7 format=3 uid="uid://7rpkbeylnv2p"]
+
+[ext_resource type="Texture2D" uid="uid://deh0s6kub0pbt" path="res://Sprites/rift-zone.jpeg" id="1_o5n6e"]
+[ext_resource type="Script" path="res://Menus/sugar_glider.gd" id="2_nu282"]
+
+[sub_resource type="Gradient" id="Gradient_e6rk5"]
+colors = PackedColorArray(0.731817, 0.326975, 0.700511, 1, 1, 0.533333, 0.282353, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xyxbm"]
+gradient = SubResource("Gradient_e6rk5")
+
+[sub_resource type="LabelSettings" id="LabelSettings_lrdh5"]
+font_size = 100
+
+[sub_resource type="LabelSettings" id="LabelSettings_3x2ri"]
+font_size = 24
+
+[node name="TitleScreen" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GradientBackground" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_xyxbm")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -92.0
+offset_top = -177.0
+offset_right = 92.0
+offset_bottom = 177.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_o5n6e")
+
+[node name="GameName" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -558.0
+offset_top = 100.0
+offset_right = 559.0
+offset_bottom = 237.0
+grow_horizontal = 2
+text = "Rift Zone"
+label_settings = SubResource("LabelSettings_lrdh5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -100.0
+offset_right = 250.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Your islands volcano has erupted oh no! You are now stuck in the rift zone and must try and esacpe"
+label_settings = SubResource("LabelSettings_3x2ri")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = 136.0
+offset_right = 23.0
+offset_bottom = 167.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+text = "Next"
+script = ExtResource("2_nu282")
