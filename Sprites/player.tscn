@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://diclwwhrg5yqc"]
+[gd_scene load_steps=8 format=3 uid="uid://diclwwhrg5yqc"]
 
 [ext_resource type="Script" path="res://Sprites/player.gd" id="1_oai6h"]
 [ext_resource type="Script" path="res://Sprites/camera_zooming.gd" id="2_nhqnd"]
@@ -13,8 +13,14 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_lfuag"]
 gradient = SubResource("Gradient_07boe")
 
+[sub_resource type="Curve" id="Curve_aruef"]
+_data = [Vector2(0.0151515, 1), 0.0, 1.10257, 0, 0, Vector2(0.753217, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [node name="Player" type="CharacterBody2D"]
 texture_filter = 1
+collision_layer = 5
+collision_mask = 5
 script = ExtResource("1_oai6h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -38,3 +44,18 @@ offset_bottom = 20.0
 value = 75.0
 fill_mode = 5
 texture_progress = ExtResource("3_xh3w2")
+
+[node name="GlideParticles" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 20
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+direction = Vector2(0, 1)
+spread = 102.46
+gravity = Vector2(0, 40)
+initial_velocity_min = 87.07
+initial_velocity_max = 294.64
+scale_amount_min = 4.0
+scale_amount_max = 8.0
+scale_amount_curve = SubResource("Curve_aruef")

@@ -11,8 +11,9 @@ config_version=5
 [application]
 
 config/name="DuckSauce2025"
-run/main_scene="res://Menus/TitleScreen.tscn"
+run/main_scene="res://Levels/level0.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
+boot_splash/bg_color=Color(0.172388, 0.568938, 0.755892, 1)
 config/icon="res://icon.svg"
 
 [audio]
@@ -22,6 +23,7 @@ buses/default_bus_layout="res://Audio/default_bus_layout.tres"
 [autoload]
 
 MusicPlayer="*res://Audio/MusicPlayer.tscn"
+CheckpointCounter="*res://Levels/checkpoints/CheckpointCounter.tscn"
 
 [dotnet]
 
@@ -52,8 +54,10 @@ glide={
 
 [physics]
 
-2d/default_gravity_vector=Vector2(0, 5)
+2d/default_gravity_vector=Vector2(0, 10)
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"
+environment/defaults/default_clear_color=Color(0.134761, 0.453536, 0.593256, 1)

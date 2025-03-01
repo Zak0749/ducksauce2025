@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 const SPEED = 1000.0
-const JUMP_VELOCITY = -2000.0
+const JUMP_VELOCITY = -3000.0
 const MAX_GLIDE = 100.0;
 
 
@@ -13,7 +13,10 @@ var lastDirdirection = 1;
 func _physics_process(delta: float) -> void:
 	var isGliding = Input.is_action_pressed("glide") && glide_energy > 0	&& !is_on_floor()
 	
-	var modifier = 1.25 if isGliding else 1.0
+	if Input.is_action_just_pressed("glide") && glide_energy > 90:
+		$GlideParticles.emitting = true
+	
+	var modifier = 1.5 if isGliding else 1.0
 	
 #	
 	var direction := Input.get_axis("left", "right")
@@ -61,8 +64,14 @@ func _physics_process(delta: float) -> void:
 	var collision = get_last_slide_collision();
 	
 	if collision:
-		if collision.get_collider().name == 'LavaLayer':
+		if collision.get_collider().has_meta('player_kill'):
 			game_over()
+		
+		#print(collision.get_collider().get_meta_list())
+			
+		if collision.get_collider().has_meta('checkpoint_number'):
+			$"/root/CheckpointCounter".set_checkpoint(position)
+			
 		
 	#if collision:
 		#if collision.get_collider() is TileMap:
