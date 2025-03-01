@@ -5,7 +5,15 @@ extends StaticBody2D
 func _ready() -> void:
 	pass # Replace with function body.
 
+var labelShow = 0;
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if labelShow > 0:
+		$Label.visible = true
+		labelShow -= 1
+	else:
+		$Label.visible = false
+
+func showTheLabel():
+	labelShow = 100;

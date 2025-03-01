@@ -60,4 +60,5 @@ glide={
 
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"
-environment/defaults/default_clear_color=Color(0.134761, 0.453536, 0.593256, 1)
+environment/defaults/default_clear_color=Color(3.85046e-07, 0.568928, 0.706758, 1)
+environment/bg_color=Color(0.172388, 0.568938, 0.755892, 1)

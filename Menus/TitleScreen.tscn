@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://tof73ne6pfkx"]
+[gd_scene load_steps=8 format=3 uid="uid://tof73ne6pfkx"]
 
 [ext_resource type="Texture2D" uid="uid://deh0s6kub0pbt" path="res://Sprites/rift-zone.jpeg" id="1_ro5s8"]
-[ext_resource type="Script" path="res://Menus/rift-explain.gd" id="2_opd8l"]
+[ext_resource type="FontFile" uid="uid://2p68d6uhyu1p" path="res://Font/static/JetBrainsMono-Bold.ttf" id="2_kh580"]
+[ext_resource type="Script" path="res://Menus/next_screen.gd" id="3_wxvms"]
+[ext_resource type="PackedScene" uid="uid://dwqmsm2jd6sf4" path="res://Menus/Sugar-Glider.tscn" id="4_iuwut"]
 
 [sub_resource type="Gradient" id="Gradient_e6rk5"]
 colors = PackedColorArray(0.731817, 0.326975, 0.700511, 1, 1, 0.533333, 0.282353, 1)
@@ -10,6 +12,7 @@ colors = PackedColorArray(0.731817, 0.326975, 0.700511, 1, 1, 0.533333, 0.282353
 gradient = SubResource("Gradient_e6rk5")
 
 [sub_resource type="LabelSettings" id="LabelSettings_lrdh5"]
+font = ExtResource("2_kh580")
 font_size = 100
 
 [node name="TitleScreen" type="Control"]
@@ -56,19 +59,22 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="StartButton" type="Button" parent="."]
+texture_filter = 3
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -23.0
-offset_top = -15.5
-offset_right = 23.0
-offset_bottom = 15.5
+offset_left = -42.5
+offset_top = -25.5
+offset_right = 42.5
+offset_bottom = 25.5
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(2, 2)
+theme_override_fonts/font = ExtResource("2_kh580")
+theme_override_font_sizes/font_size = 32
 text = "Next
 "
-script = ExtResource("2_opd8l")
+script = ExtResource("3_wxvms")
+nextScene = ExtResource("4_iuwut")

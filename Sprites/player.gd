@@ -71,6 +71,7 @@ func _physics_process(delta: float) -> void:
 			
 		if collision.get_collider().has_meta('checkpoint_number'):
 			$"/root/CheckpointCounter".set_checkpoint(position)
+			collision.get_collider().showTheLabel()
 			
 		
 	#if collision:

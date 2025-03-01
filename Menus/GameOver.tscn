@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cwwrp0kprw7qv"]
+[gd_scene load_steps=8 format=3 uid="uid://cwwrp0kprw7qv"]
 
-[ext_resource type="Script" path="res://Menus/start_game.gd" id="1_4387e"]
 [ext_resource type="Texture2D" uid="uid://da7jh5ag128y8" path="res://Menus/sugar-glider.jpg" id="1_vbl0t"]
+[ext_resource type="FontFile" uid="uid://2p68d6uhyu1p" path="res://Font/static/JetBrainsMono-Bold.ttf" id="2_8j3mr"]
+[ext_resource type="Script" path="res://Menus/next_screen.gd" id="3_t1bar"]
+[ext_resource type="PackedScene" uid="uid://holryihixuar" path="res://Levels/level0.tscn" id="4_f0u08"]
 
 [sub_resource type="Gradient" id="Gradient_e6rk5"]
 colors = PackedColorArray(0.731817, 0.326975, 0.700511, 1, 1, 0.533333, 0.282353, 1)
@@ -9,7 +11,8 @@ colors = PackedColorArray(0.731817, 0.326975, 0.700511, 1, 1, 0.533333, 0.282353
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_xyxbm"]
 gradient = SubResource("Gradient_e6rk5")
 
-[sub_resource type="LabelSettings" id="LabelSettings_d2pb2"]
+[sub_resource type="LabelSettings" id="LabelSettings_2yofx"]
+font = ExtResource("2_8j3mr")
 font_size = 24
 font_color = Color(0, 0, 0, 1)
 
@@ -41,7 +44,7 @@ grow_vertical = 2
 texture = ExtResource("1_vbl0t")
 expand_mode = 5
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect2" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -53,37 +56,36 @@ grow_vertical = 2
 scale = Vector2(1.01111, 0.994292)
 color = Color(1, 1, 1, 0.8)
 
-[node name="Label" type="Label" parent="ColorRect"]
+[node name="Label" type="Label" parent="ColorRect2"]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -250.299
-offset_top = -99.9059
-offset_right = 249.701
-offset_bottom = 100.094
+offset_left = -250.0
+offset_right = 250.0
+offset_bottom = 200.0
 grow_horizontal = 2
-grow_vertical = 2
-text = "The extremley cute sugar glider did not make it 😭 - look into it's cute face and see what you have done 😡"
-label_settings = SubResource("LabelSettings_d2pb2")
+text = "
+The extremley cute sugar glider did not make it 😭 - look into it's cute face and see what you have done 😡"
+label_settings = SubResource("LabelSettings_2yofx")
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="StartButton" type="Button" parent="ColorRect"]
+[node name="StartButton" type="Button" parent="ColorRect2"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.8479
-offset_top = 85.1503
-offset_right = 25.152
-offset_bottom = 116.15
+offset_left = -31.5
+offset_top = -21.0
+offset_right = 31.5
+offset_bottom = 21.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(2, 2)
-text = "Retry"
-script = ExtResource("1_4387e")
+theme_override_fonts/font = ExtResource("2_8j3mr")
+theme_override_font_sizes/font_size = 24
+text = "Restart Game"
+script = ExtResource("3_t1bar")
+nextScene = ExtResource("4_f0u08")
