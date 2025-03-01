@@ -35,13 +35,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -92.0
-offset_top = -177.0
-offset_right = 92.0
-offset_bottom = 177.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_ro5s8")
+expand_mode = 5
 
 [node name="GameName" type="Label" parent="."]
 layout_mode = 1
