@@ -12,7 +12,7 @@ var glide_energy = 100;
 func _physics_process(delta: float) -> void:
 	var isGliding = Input.is_action_pressed("glide") && glide_energy > 0	&& !is_on_floor()
 	
-	var modifier = 1.25 if isGliding else 1
+	var modifier = 1.25 if isGliding else 1.0
 	
 #	movement
 	var direction := Input.get_axis("left", "right")

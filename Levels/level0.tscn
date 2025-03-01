@@ -84,7 +84,6 @@ sources/0 = SubResource("TileSetAtlasSource_lk8yl")
 position = Vector2(419, 279)
 scale = Vector2(3, 3)
 collision_mask = 3
-script = null
 
 [node name="Node" type="Node" parent="."]
 
