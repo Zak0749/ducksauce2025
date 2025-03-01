@@ -27,11 +27,10 @@ texture = SubResource("GradientTexture2D_lfuag")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
-position_smoothing_speed = 20.0
+position_smoothing_speed = 50.0
 script = ExtResource("2_nhqnd")
 
 [node name="GlideBar" type="TextureProgressBar" parent="."]
-anchors_preset = -1
 offset_left = -47.0
 offset_top = -44.0
 offset_right = 17.0
