@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://s22v7t5e1l7v"]
+
+[ext_resource type="Script" path="res://Levels/checkpoints/checkpoint_counter.gd" id="1_q3n1j"]
+
+[node name="CheckpointCounter" type="Node"]
+script = ExtResource("1_q3n1j")

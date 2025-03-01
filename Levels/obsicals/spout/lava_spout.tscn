@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cm8gfeo6iw8dh"]
+
+[ext_resource type="Texture2D" uid="uid://1ifh67ox6xe7" path="res://Levels/obsicals/spout/spout.png" id="1_jopnd"]
+[ext_resource type="Script" path="res://Levels/obsicals/spout/lava_spout.gd" id="1_q3jjr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f81d0"]
+size = Vector2(6, 8.5)
+
+[node name="LavaSpout" type="AnimatableBody2D"]
+script = ExtResource("1_q3jjr")
+metadata/player_kill = true
+
+[node name="Spout" type="ColorRect" parent="."]
+offset_left = -3.0
+offset_top = -1.0
+offset_right = 3.0
+offset_bottom = 8.0
+color = Color(1, 0.470588, 0.0352941, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_jopnd")
+
+[node name="LavaSpout" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3.25)
+shape = SubResource("RectangleShape2D_f81d0")

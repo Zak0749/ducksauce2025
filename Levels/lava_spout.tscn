@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddwu2osa03y3e"]
+
+[sub_resource type="Curve" id="Curve_tue46"]
+_data = [Vector2(0.0637394, 0.945743), 0.0, 0.0, 0, 0, Vector2(0.977337, 0.435726), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_7gwcm"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.209205, 0.973501)
+colors = PackedColorArray(0.941176, 0.458824, 0.027451, 1, 0.36, 0.1044, 0.10866, 1)
+
+[node name="LavaParticles" type="Node2D"]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 5
+lifetime = 2.0
+randomness = 1.0
+lifetime_randomness = 1.0
+direction = Vector2(0, -1)
+gravity = Vector2(0, 100)
+initial_velocity_min = 20.0
+initial_velocity_max = 100.0
+damping_min = 4.187
+damping_max = 18.719
+scale_amount_min = 5.0
+scale_amount_max = 10.0
+scale_amount_curve = SubResource("Curve_tue46")
+color_ramp = SubResource("Gradient_7gwcm")
+hue_variation_min = -0.39
+hue_variation_max = 1.0
