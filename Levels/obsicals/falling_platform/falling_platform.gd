@@ -20,7 +20,7 @@ func _physics_process(delta: float) -> void:
 	if timer == 0:
 		self.position.y += 2
 		
-	if self.position.y > 100:
+	if self.position.y > og_height + 200:
 		goingDoon = false
 		timer = 50
 		self.position.y = og_height

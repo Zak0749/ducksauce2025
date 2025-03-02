@@ -1,7 +1,7 @@
 extends AnimatableBody2D
 
-const time_up = 3;
-const time_down = 3;
+var time_up = 3;
+var time_down = 3;
 
 var counter = time_down;
 
@@ -14,6 +14,9 @@ var current_state = State.DOWN
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	time_up = randf_range(1, 2)
+	time_down = randf_range(1, 2)
+	
 	pass # Replace with function body.
 
 var should_scale = 1
@@ -30,11 +33,11 @@ func _process(delta: float) -> void:
 		match current_state:
 			State.DOWN:
 				current_state = State.UP
-				counter = time_up
+				counter = time_down
 				should_scale = -20
 					
 				#$Spout.scale.y = 20.0
 			State.UP:
 				current_state = State.DOWN
 				should_scale = 1
-				counter = time_down
+				counter = time_up

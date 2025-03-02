@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://daxileeyaagiw"]
+
+[ext_resource type="Texture2D" uid="uid://b7msmesdrjps2" path="res://Levels/checkpoints/staticObjects_.png" id="1_wvu6i"]
+[ext_resource type="FontFile" uid="uid://2p68d6uhyu1p" path="res://Font/static/JetBrainsMono-Bold.ttf" id="2_g5upa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2hoee"]
+size = Vector2(15, 13)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5tm27"]
+font = ExtResource("2_g5upa")
+font_size = 32
+
+[node name="EndGame" type="StaticBody2D"]
+position = Vector2(20868, -4280)
+metadata/checkpoint_number = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 1.5)
+scale = Vector2(5, 5)
+shape = SubResource("RectangleShape2D_2hoee")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(5, 5)
+texture = ExtResource("1_wvu6i")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -57.0
+offset_top = -72.0
+offset_right = 58.0
+offset_bottom = -29.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Saved!"
+label_settings = SubResource("LabelSettings_5tm27")
+horizontal_alignment = 1

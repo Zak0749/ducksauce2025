@@ -97,6 +97,6 @@ grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_8j3mr")
 theme_override_font_sizes/font_size = 24
 shortcut = SubResource("Shortcut_y5u55")
-text = "Restart Game"
+text = "Continue"
 script = ExtResource("3_t1bar")
 nextScene = ExtResource("4_f0u08")

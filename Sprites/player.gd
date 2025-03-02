@@ -74,10 +74,14 @@ func _physics_process(delta: float) -> void:
 	if collision:
 		if collision.get_collider().has_meta('player_kill'):
 			game_over()
-					
-		if collision.get_collider().has_meta('checkpoint_number'):
+			
+		print(collision.get_collider().name)
+		if collision.get_collider().has_meta('end_game') or collision.get_collider().name == 'EndGame':
+			get_tree().change_scene_to_file("res://Menus/WinScreen.tscn")		
+		elif collision.get_collider().has_meta('checkpoint_number'):
 			$"/root/CheckpointCounter".set_checkpoint(position)
 			collision.get_collider().showTheLabel()
+			
 			
 		#var normal = collision.get_normal()
 		#
