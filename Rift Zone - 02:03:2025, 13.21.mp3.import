@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ngpwwgsrd0v7"
+path="res://.godot/imported/Rift Zone - 02:03:2025, 13.21.mp3-2ddad96b186862e1ac9e84c3a35c15b2.mp3str"
+
+[deps]
+
+source_file="res://Rift Zone - 02:03:2025, 13.21.mp3"
+dest_files=["res://.godot/imported/Rift Zone - 02:03:2025, 13.21.mp3-2ddad96b186862e1ac9e84c3a35c15b2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -74,7 +74,7 @@ offset_right = 250.0
 offset_bottom = 200.0
 grow_horizontal = 2
 text = "
-The extremley cute sugar glider did not make it 😭 - look into it's cute face and see what you have done 😡
+The extremley cute sugar glider did not make it :( - look into it's cute face and see what you have done >:(
 
 click or press space to"
 label_settings = SubResource("LabelSettings_2yofx")

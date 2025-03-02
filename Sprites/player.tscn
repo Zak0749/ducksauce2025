@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://diclwwhrg5yqc"]
+[gd_scene load_steps=21 format=3 uid="uid://diclwwhrg5yqc"]
 
 [ext_resource type="Script" path="res://Sprites/player.gd" id="1_oai6h"]
 [ext_resource type="Texture2D" uid="uid://duvloqjiuwu34" path="res://player_smol.png" id="2_njjks"]
@@ -96,6 +96,10 @@ animations = [{
 _data = [Vector2(0.0151515, 1), 0.0, 1.10257, 0, 0, Vector2(0.753217, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
+[sub_resource type="Curve" id="Curve_vf86b"]
+_data = [Vector2(0.0590909, 1), 0.0, 0.0, 0, 0, Vector2(0.963636, 0.230769), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [node name="Player" type="CharacterBody2D"]
 texture_filter = 1
 collision_layer = 5
@@ -149,3 +153,17 @@ volume_db = -10.0
 
 [node name="Death" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_kvvga")
+
+[node name="HitGround" type="CPUParticles2D" parent="."]
+position = Vector2(0, 15)
+emitting = false
+amount = 6
+lifetime = 0.2
+one_shot = true
+direction = Vector2(0, -1)
+spread = 60.0
+initial_velocity_min = 41.67
+initial_velocity_max = 175.0
+scale_amount_min = 4.0
+scale_amount_max = 8.0
+scale_amount_curve = SubResource("Curve_vf86b")

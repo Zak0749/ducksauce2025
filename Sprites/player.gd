@@ -16,7 +16,7 @@ func _physics_process(delta: float) -> void:
 	var isGliding = Input.is_action_pressed("glide") && glide_energy > 0	&& !is_on_floor()
 	
 	
-	if Input.is_action_just_pressed("glide") && glide_energy > 90:
+	if Input.is_action_just_pressed("glide") && glide_energy > 90 && !is_on_floor():
 		since_last_glide = 20
 		$Flap_sfx.play()
 		$Sprite.scale = Vector2(1.2, 1.2)
@@ -36,6 +36,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = lerpf(velocity.x,lastDirdirection * SPEED * modifier, 0.25)
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED * modifier)
+		
 #	gravity
 	if is_on_floor():
 		if squish:
@@ -79,9 +80,12 @@ func _physics_process(delta: float) -> void:
 			
 	if isGliding:
 		$Sprite.play('gliding')
+		$GlideParticles.emitting = false
 	elif direction != 0:
 		$Sprite.play('running')
+		$GlideParticles.emitting = true
 	else:
+		$GlideParticles.emitting = false
 		$Sprite.play('standing')
 		
 	if velocity.x < 0:
