@@ -10,13 +10,15 @@ const MAX_GLIDE = 100.0;
 var glide_energy = 100;	
 var lastDirdirection = 1;
 var since_last_glide = 0;
-
+var squish = true;
 func _physics_process(delta: float) -> void:
 
 	var isGliding = Input.is_action_pressed("glide") && glide_energy > 0	&& !is_on_floor()
 	
 	if Input.is_action_just_pressed("glide") && glide_energy > 90:
 		since_last_glide = 20
+		$Flap_sfx.play()
+		$Sprite.scale = Vector2(1.2, 1.2)
 		$GlideParticles.emitting = true
 	
 	var modifier = 1.5 if isGliding else 1.0
@@ -30,13 +32,21 @@ func _physics_process(delta: float) -> void:
 		velocity.x = lerpf(velocity.x,lastDirdirection * SPEED * modifier, 0.25)
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED * modifier)
-	
 #	gravity
 	if is_on_floor():
+		if squish:
+			$Sprite.scale = Vector2(1.3,0.7)
+			squish = false
+			$Ground_sfx.play()
+			
 		if glide_energy < MAX_GLIDE:
 			glide_energy += 1
 		if Input.is_action_just_pressed("jump"):
+			$Jump_sfx.play()
+			$Sprite.scale = Vector2(0.7,1.3)
 			velocity.y = JUMP_VELOCITY
+	else:
+		squish = true
 			
 	if since_last_glide >= 0:
 		since_last_glide -= 1
@@ -47,10 +57,10 @@ func _physics_process(delta: float) -> void:
 		velocity.y = get_gravity().y * 2 * delta
 		glide_energy -= 1
 	else:
-		$Sprite.modulate = Color(1,1,1,1);
+		$Sprite.modulate = Color(1,2,1,2);
 		if velocity.y < 2000 and since_last_glide <= 0:
 			velocity += get_gravity() * delta
-		
+					
 	if glide_energy > 95 and not isGliding:
 		$GlideBar.visible = false
 	else:
@@ -69,13 +79,18 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 	
+	$Sprite.scale.x = move_toward($Sprite.scale.x, 1, 2*delta)
+	$Sprite.scale.y = move_toward($Sprite.scale.y, 1, 2*delta)
+	
+	
 	var collision = get_last_slide_collision();
 	
 	if collision:
 		if collision.get_collider().has_meta('player_kill'):
-			game_over()
+			#await FadeTransition.get_child(1).fade_animation()
+			get_tree().change_scene_to_file("res://Menus/GameOver.tscn");
+
 			
-		print(collision.get_collider().name)
 		if collision.get_collider().has_meta('end_game') or collision.get_collider().name == 'EndGame':
 			get_tree().change_scene_to_file("res://Menus/WinScreen.tscn")		
 		elif collision.get_collider().has_meta('checkpoint_number'):
@@ -101,6 +116,3 @@ func _physics_process(delta: float) -> void:
 			## Check if the tile ID is the "dangerous" tile
 			#if tile_id == 1: # Replace 1 with the actual tile ID of your dangerous tile
 				#game_over()
-
-func game_over():
-	get_tree().change_scene_to_file("res://Menus/GameOver.tscn");

@@ -24,6 +24,7 @@ buses/default_bus_layout="res://Audio/default_bus_layout.tres"
 
 MusicPlayer="*res://Audio/MusicPlayer.tscn"
 CheckpointCounter="*res://Levels/checkpoints/CheckpointCounter.tscn"
+FadeTransition="*res://Levels/FadeTransition.tscn"
 
 [dotnet]
 

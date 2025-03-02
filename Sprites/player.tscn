@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://diclwwhrg5yqc"]
+[gd_scene load_steps=10 format=3 uid="uid://diclwwhrg5yqc"]
 
 [ext_resource type="Script" path="res://Sprites/player.gd" id="1_oai6h"]
-[ext_resource type="Script" path="res://Sprites/camera_zooming.gd" id="2_nhqnd"]
 [ext_resource type="Texture2D" uid="uid://dpmbx2iufadij" path="res://Sprites/stamina_bar.png" id="3_xh3w2"]
+[ext_resource type="AudioStream" uid="uid://ds3akpmn23eqe" path="res://Sprites/Jump.mp3" id="4_eglu0"]
+[ext_resource type="AudioStream" uid="uid://b6hbf4exo8nnx" path="res://Sprites/flap.wav" id="5_o4xww"]
+[ext_resource type="AudioStream" uid="uid://brrx734cddht1" path="res://Sprites/hit_ground.mp3" id="6_fctfk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ig8ik"]
 
@@ -12,6 +14,8 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_lfuag"]
 gradient = SubResource("Gradient_07boe")
+width = 24
+height = 24
 
 [sub_resource type="Curve" id="Curve_aruef"]
 _data = [Vector2(0.0151515, 1), 0.0, 1.10257, 0, 0, Vector2(0.753217, 0), 0.0, 0.0, 0, 0]
@@ -28,16 +32,7 @@ shape = SubResource("RectangleShape2D_ig8ik")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(9.53674e-07, 9.53674e-07)
-scale = Vector2(0.3125, 0.3125)
 texture = SubResource("GradientTexture2D_lfuag")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-enabled = false
-position_smoothing_enabled = true
-position_smoothing_speed = 50.0
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
-script = ExtResource("2_nhqnd")
 
 [node name="GlideBar" type="TextureProgressBar" parent="."]
 offset_left = -33.0
@@ -63,3 +58,12 @@ initial_velocity_max = 294.64
 scale_amount_min = 4.0
 scale_amount_max = 8.0
 scale_amount_curve = SubResource("Curve_aruef")
+
+[node name="Jump_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_eglu0")
+
+[node name="Flap_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_o4xww")
+
+[node name="Ground_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_fctfk")

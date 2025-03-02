@@ -5,10 +5,11 @@ extends Camera2D
 
 func _ready():
 	print("camera setup")
+	position = player.position
+	
 	force_update_scroll()
 	reset_smoothing()
 	
-	position = player.position
 
 func _process(delta):		
 	var h = self.get_viewport().size.y / 1200.0
