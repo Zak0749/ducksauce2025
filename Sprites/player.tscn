@@ -32,6 +32,7 @@ scale = Vector2(0.3125, 0.3125)
 texture = SubResource("GradientTexture2D_lfuag")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+enabled = false
 position_smoothing_enabled = true
 position_smoothing_speed = 50.0
 drag_horizontal_enabled = true
@@ -39,10 +40,11 @@ drag_vertical_enabled = true
 script = ExtResource("2_nhqnd")
 
 [node name="GlideBar" type="TextureProgressBar" parent="."]
-offset_left = -47.0
-offset_top = -44.0
-offset_right = 17.0
-offset_bottom = 20.0
+offset_left = -33.0
+offset_top = -34.0
+offset_right = 31.0
+offset_bottom = 30.0
+scale = Vector2(0.75, 0.75)
 value = 75.0
 fill_mode = 5
 texture_progress = ExtResource("3_xh3w2")

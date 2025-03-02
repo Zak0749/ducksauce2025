@@ -14,15 +14,12 @@ func _ready() -> void:
 		
 		if self.get_cell_tile_data(cell).get_custom_data('top_lava'):
 		 # Instance the scene
-			print("lava_particles", cell)
 			var new_scene_instance = scene_to_spawn.instantiate()
 
 	# Set the position of the new scene
 			new_scene_instance.position = world_position
 		
-			new_scene_instance.get_child(0).emitting = true
-			print(new_scene_instance.position)
-			
+			new_scene_instance.get_child(0).emitting = true			
 	# Add the new scene to the current scene (or a specific parent)
 			add_child(new_scene_instance)
 		

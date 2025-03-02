@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cwwrp0kprw7qv"]
+[gd_scene load_steps=10 format=3 uid="uid://cwwrp0kprw7qv"]
 
 [ext_resource type="Texture2D" uid="uid://da7jh5ag128y8" path="res://Menus/sugar-glider.jpg" id="1_vbl0t"]
 [ext_resource type="FontFile" uid="uid://2p68d6uhyu1p" path="res://Font/static/JetBrainsMono-Bold.ttf" id="2_8j3mr"]
@@ -15,6 +15,14 @@ gradient = SubResource("Gradient_e6rk5")
 font = ExtResource("2_8j3mr")
 font_size = 24
 font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="InputEventKey" id="InputEventKey_1cqaa"]
+device = -1
+keycode = 32
+unicode = 32
+
+[sub_resource type="Shortcut" id="Shortcut_y5u55"]
+events = [SubResource("InputEventKey_1cqaa")]
 
 [node name="TitleScreen" type="Control"]
 texture_filter = 1
@@ -66,7 +74,9 @@ offset_right = 250.0
 offset_bottom = 200.0
 grow_horizontal = 2
 text = "
-The extremley cute sugar glider did not make it 😭 - look into it's cute face and see what you have done 😡"
+The extremley cute sugar glider did not make it 😭 - look into it's cute face and see what you have done 😡
+
+click or press space to"
 label_settings = SubResource("LabelSettings_2yofx")
 horizontal_alignment = 1
 autowrap_mode = 2
@@ -86,6 +96,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_8j3mr")
 theme_override_font_sizes/font_size = 24
+shortcut = SubResource("Shortcut_y5u55")
 text = "Restart Game"
 script = ExtResource("3_t1bar")
 nextScene = ExtResource("4_f0u08")

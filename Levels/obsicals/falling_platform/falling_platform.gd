@@ -11,16 +11,16 @@ func _ready() -> void:
 	$Area2D.connect("area_entered", _start_decay)
 
 var goingDoon = false
-var timer = 50;
+var timer = 14;
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	if goingDoon:
 		timer = max(timer - 1, 0)
 		
 	if timer == 0:
-		self.position.y += 5
+		self.position.y += 2
 		
-	if self.position.y > 500:
+	if self.position.y > 100:
 		goingDoon = false
 		timer = 50
 		self.position.y = og_height
