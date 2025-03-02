@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://diclwwhrg5yqc"]
+[gd_scene load_steps=20 format=3 uid="uid://diclwwhrg5yqc"]
 
 [ext_resource type="Script" path="res://Sprites/player.gd" id="1_oai6h"]
 [ext_resource type="Texture2D" uid="uid://duvloqjiuwu34" path="res://player_smol.png" id="2_njjks"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://ds3akpmn23eqe" path="res://Sprites/Jump.mp3" id="4_eglu0"]
 [ext_resource type="AudioStream" uid="uid://b6hbf4exo8nnx" path="res://Sprites/flap.wav" id="5_o4xww"]
 [ext_resource type="AudioStream" uid="uid://brrx734cddht1" path="res://Sprites/hit_ground.mp3" id="6_fctfk"]
+[ext_resource type="AudioStream" uid="uid://bsq6rac3r7wqm" path="res://Sprites/Hit.mp3" id="7_kvvga"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ig8ik"]
 size = Vector2(31, 28)
@@ -144,3 +145,7 @@ stream = ExtResource("5_o4xww")
 
 [node name="Ground_sfx" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_fctfk")
+volume_db = -10.0
+
+[node name="Death" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_kvvga")

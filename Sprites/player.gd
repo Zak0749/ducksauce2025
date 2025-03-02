@@ -84,7 +84,12 @@ func _physics_process(delta: float) -> void:
 	else:
 		$Sprite.play('standing')
 		
-	$Sprite.flip_h = velocity.x < 0
+	if velocity.x < 0:
+		$Sprite.flip_h = true
+	elif velocity.x == 0:
+		$Sprite.flip_h = lastDirdirection < 0
+	else:
+		$Sprite.flip_h = false
 		
 		
 
@@ -98,6 +103,7 @@ func _physics_process(delta: float) -> void:
 	
 	if collision:
 		if collision.get_collider().has_meta('player_kill'):
+			$Death.play()
 			#await FadeTransition.get_child(1).fade_animation()
 			get_tree().change_scene_to_file("res://Menus/GameOver.tscn");
 
