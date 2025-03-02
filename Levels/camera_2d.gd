@@ -4,7 +4,6 @@ extends Camera2D
 @export var smoothing_speed: float = 5.0
 
 func _ready():
-	print("camera setup")
 	position = player.position
 	
 	force_update_scroll()
@@ -16,5 +15,5 @@ func _process(delta):
 	self.zoom = Vector2(h, h)
 
 	# Smoothly follow player on X-axis
-	position.x = lerp(position.x, player.position.x, 0.1)
-	position.y = lerp(position.y, player.position.y, 0.1)
+	position.x = lerp(position.x, player.position.x, 0.08)
+	position.y = lerp(position.y, player.position.y, 0.08)

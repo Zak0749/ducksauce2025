@@ -15,6 +15,7 @@ func _physics_process(delta: float) -> void:
 
 	var isGliding = Input.is_action_pressed("glide") && glide_energy > 0	&& !is_on_floor()
 	
+	
 	if Input.is_action_just_pressed("glide") && glide_energy > 90:
 		since_last_glide = 20
 		$Flap_sfx.play()
@@ -22,6 +23,9 @@ func _physics_process(delta: float) -> void:
 		$GlideParticles.emitting = true
 	
 	var modifier = 1.5 if isGliding else 1.0
+	
+#	animation handler
+
 	
 #	
 	var direction := Input.get_axis("left", "right")
@@ -53,11 +57,9 @@ func _physics_process(delta: float) -> void:
 		
 #	gliding animations
 	if isGliding:
-		$Sprite.modulate = Color(0,0,1,1);
 		velocity.y = get_gravity().y * 2 * delta
 		glide_energy -= 1
 	else:
-		$Sprite.modulate = Color(1,2,1,2);
 		if velocity.y < 2000 and since_last_glide <= 0:
 			velocity += get_gravity() * delta
 					
@@ -75,6 +77,15 @@ func _physics_process(delta: float) -> void:
 			$GlideBar.modulate = Color(0.961, 0.137, 0.137)
 			
 			
+	if isGliding:
+		$Sprite.play('gliding')
+	elif direction != 0:
+		$Sprite.play('running')
+	else:
+		$Sprite.play('standing')
+		
+	$Sprite.flip_h = velocity.x < 0
+		
 		
 
 	move_and_slide()
